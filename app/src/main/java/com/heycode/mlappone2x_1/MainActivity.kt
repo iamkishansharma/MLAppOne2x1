@@ -13,7 +13,7 @@ import java.nio.channels.FileChannel
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var interpreter:Interpreter
+    private lateinit var interpreter:Interpreter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
 
         try {
-            interpreter = Interpreter(loadModelFile(),null)
+            interpreter = Interpreter(loadModelFile(),null)//This is a bug in this app
 
         }catch (e:Exception){
             println(e.stackTrace)
