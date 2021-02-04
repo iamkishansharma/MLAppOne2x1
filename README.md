@@ -1,4 +1,4 @@
-"# MLAppOne2x-1" Machine Learning based Android app for predicting the Car Efficiency </br>
+"# MLAppOne2x-1" Machine Learning based Android app to predict value of Y in a given equation </br>
 
 <table style="width:100%; align:center;" >
   <tr>
@@ -12,4 +12,4 @@
 
 #developed with ❤️ by [@iamkishansharma]( https://github.com/iamkishansharma )`
 </br>
-#fuelefficiency #predictivemodel tensorflowlite #keras #python #machinelearning #androidapp #kotlin
+#predictivemodel #tensorflowlite #keras #python #machinelearning #androidapp #kotlin
