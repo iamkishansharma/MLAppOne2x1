@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MLAppOne(2x-1)</string>
     <string name="formula">Y = 2X - 1</string>
     <string name="give_value_to_x">Give a value for X</string>
-    <string name="enter_an_integer_value">Enter an integer value</string>
     <string name="predict_value_of_y">Predict value of Y</string>
 </resources>

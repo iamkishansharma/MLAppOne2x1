@@ -6,29 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/title_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter value of X"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/user_input"
-        android:layout_margin="20dp"
-        android:layout_above="@+id/button_predict"/>
+        android:layout_margin="16dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="8dp">
+
+        <TextView
+            android:id="@+id/page_title"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="60dp"
+            android:background="@drawable/bg"
+            android:text="@string/formula"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_input_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_card"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        app:helperText="@string/give_value_to_x">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/enter_an_integer_value"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
+        android:id="@+id/button_predict"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_predict"
-        android:layout_centerVertical="true"
-        android:text="Predict value of Y"
-        android:layout_margin="20dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@+id/user_input_box"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/predict_value_of_y" />
+
     <TextView
         android:id="@+id/result_text"
+        style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:layout_margin="20dp"
+        android:layout_below="@id/button_predict"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/button_predict"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="" />
 
 </RelativeLayout>

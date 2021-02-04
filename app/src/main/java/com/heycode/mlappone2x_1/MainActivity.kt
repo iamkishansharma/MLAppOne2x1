@@ -8,25 +8,24 @@ import androidx.appcompat.app.AppCompatActivity
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
 import java.io.IOException
-import java.nio.MappedByteBuffer
+import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var interpreter:Interpreter
+    private lateinit var interpreter: Interpreter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         try {
-            interpreter = Interpreter(loadModelFile(),null)//This is a bug in this app
+            interpreter = Interpreter(loadModelFile(), null)//This is a bug in this app
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             println(e.stackTrace)
         }
-        val predictButton:Button = findViewById(R.id.button_predict)
+        val predictButton: Button = findViewById(R.id.button_predict)
         val userInput: EditText = findViewById(R.id.user_input)
         val resultText: TextView = findViewById(R.id.result_text)
 
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
 
     @Throws(IOException::class)
-    private fun loadModelFile(): MappedByteBuffer? {
+    private fun loadModelFile(): ByteBuffer {
         val assetFileDescriptor = this.assets.openFd("linear.tflite")
         val fileInputStream = FileInputStream(assetFileDescriptor.fileDescriptor)
         val fileChannel: FileChannel = fileInputStream.getChannel()
