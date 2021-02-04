@@ -5,9 +5,4 @@
     <gradient
         android:endColor="@color/purple_500"
         android:startColor="@color/teal_200" />
-    <corners
-        android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp"
-        android:topLeftRadius="10dp"
-        android:topRightRadius="10dp" />
 </shape>

@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
 import java.io.IOException
@@ -20,18 +21,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         try {
-            interpreter = Interpreter(loadModelFile(), null)//This is a bug in this app
+            interpreter = Interpreter(loadModelFile(), null)
 
         } catch (e: Exception) {
             println(e.stackTrace)
         }
+
         val predictButton: Button = findViewById(R.id.button_predict)
-        val userInput: EditText = findViewById(R.id.user_input)
+        val userInput: TextInputEditText = findViewById(R.id.user_input)
         val resultText: TextView = findViewById(R.id.result_text)
 
         predictButton.setOnClickListener {
-            val resultFloat = doInference(userInput.text.toString())
-            resultText.text = "Result:\nY = $resultFloat"
+            if (userInput.text.toString().isNotEmpty()){
+                val resultFloat = doInference(userInput.text.toString())
+                resultText.text = "Result:\nY = $resultFloat"
+            }else{
+                userInput.error = "X is required"
+            }
         }
     }
 
